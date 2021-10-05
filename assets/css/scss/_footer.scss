@@ -1,0 +1,24 @@
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    @include flex-box(row,space-between,center);
+    padding: 10px 20px;
+    .media-links{
+        @include flex-box(row,center,center);
+        list-style: none;
+        column-gap: 10px;
+        .link{
+            color: $white;
+            @include Smooth(0.2s);
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+    .copyrights{
+        color: $white;
+        font-size: 0.6rem;
+    }
+}

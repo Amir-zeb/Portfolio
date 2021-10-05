@@ -1,0 +1,59 @@
+// Portfolio Stylesheet
+// version 1.0
+// Author : Amir Zeb
+
+html,body,*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    position: relative;
+}
+ul,h1,h2,h3,h4,h5,h6,p,ol{
+    padding: 0;
+    margin: 0;
+}
+
+// color Variables
+    $pitchBlack:#000;
+    $white:#fff;
+    $primary:rgb(240, 76, 0);
+
+// mixins
+@mixin flex-box($direction,$position,$items) {
+    display: flex;
+    flex-flow: $direction wrap;
+    justify-content: $position;
+    align-items: $items;
+} 
+@mixin Smooth($value) {
+    transition: $value all ease-in-out;
+}
+
+// maps
+$font-weights:(
+    "light":300,
+    "regular":400,
+    "medium":500,
+    "semi-bold":600,
+    "bold":700,
+    "bolder":800,
+    "max":900,
+);
+// scroll
+:root{
+    scrollbar-width: thin;
+}
+:root::-webkit-scrollbar{
+    width: 8px;
+}
+:root::-webkit-scrollbar-thumb{
+    background-color: lighten($pitchBlack, 80%);
+}
+// imports
+@import 'home','header','footer','page';
