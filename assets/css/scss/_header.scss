@@ -1,72 +1,85 @@
-header{
-  position: relative;
-  background-color: blanchedalmond;
-  .menu-btn{
+header {
+  z-index: 999999;
+
+  .menu-btn {
     position: absolute;
     right: 1rem;
     top: 1rem;
     z-index: 9;
     text-decoration: none;
-    i{
+
+    i {
       color: $primary;
       @include Smooth(0.5s);
     }
-    .fa-plus{
+
+    .fa-plus {
       display: none;
-      transform: rotate(45deg);
     }
-    &.open{
-      .fa-plus{
-        display: block;      
+
+    &.open {
+      .fa-plus {
+        transform: rotate(45deg);
+        display: block;
       }
-      .fa-bars{
+
+      .fa-bars {
         display: none;
       }
     }
   }
-  .nav{
+
+  .nav {
     position: fixed;
     width: 100%;
-    background-color: rgba($pitchBlack,0.94);
+    background-color: rgba($pitchBlack, 0.94);
     height: 100vh;
     z-index: 5;
     visibility: hidden;
     transform: translateY(-100%);
-    @include Smooth(0.9s);
-    .menu{
+    @include Smooth(1s);
+
+    .menu {
       position: fixed;
       left: 50%;
       top: 50%;
-      transform: translate(-50%,-50%);
-      @include flex-box(column,center,center);
+      transform: translate(-50%, -50%);
+      @include flex-box(column, center, center);
       list-style-type: none;
-      &__item{
+
+      &__item {
         padding: 1rem 0;
-        transform: translateY(-100%);
-        // @include Smooth(1s);
+        // transform: translateY(-100%) translateX(600px);
+        transform: translateX(1500px);
+        @include Smooth(1s);
       }
-      &__link{
+
+      &__link {
         color: rgba($white, 0.8);
         text-decoration: none;
         font-size: 2rem;
-        font-weight: map-get($font-weights,semi-bold);
-        &.active,&:hover{
+        font-weight: map-get($font-weights, semi-bold);
+
+        &.active,
+        &:hover {
           color: $primary;
         }
       }
     }
-    &.open{
-      visibility: visible;    
+
+    &.open {
+      visibility: visible;
       transform: translateY(0);
-      .menu__item{
-        transform: translateY(0);
+
+      .menu__item {
+        transform: translateX(0);
       }
     }
   }
 }
 
-// @for $i from 1 through 4 {
-//   .menu .menu__item:nth-child(#{$i}) {
-//     transition-delay: ($i * 0.1s) + 0.15s;
-//   }
-// }
+@for $i from 1 through 4 {
+  .menu .menu__item:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.20s;
+  }
+}

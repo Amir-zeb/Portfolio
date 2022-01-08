@@ -44,12 +44,21 @@ function showSlides(n) {
 }
 
 // image effect 
-var page_down = document.querySelector(".page-down");
-page_down.addEventListener("mouseover", pageDown);
-function pageDown() {
-    document.querySelector('.slider-img').classList.add("scroll-effect");
+var page_down = document.querySelectorAll(".page-down");
+var sliderImg = document.querySelectorAll('.slider-img')
+
+for (let i = 0; i < page_down.length; i++) {
+    page_down[i].addEventListener("mouseover", pageDown);
+    page_down[i].addEventListener("mouseleave", pageUp);   
 }
-page_down.addEventListener("mouseleave", pageUp);
+
+function pageDown() {
+    for (let i = 0; i < sliderImg.length; i++) {
+        sliderImg[i].classList.add("scroll-effect");
+    }
+}
 function pageUp() {
-    document.querySelector('.slider-img').classList.remove("scroll-effect");
+    for (let i = 0; i < sliderImg.length; i++) {
+        sliderImg[i].classList.remove("scroll-effect");
+    }
 }

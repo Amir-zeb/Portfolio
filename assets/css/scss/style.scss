@@ -2,42 +2,65 @@
 // version 1.0
 // Author : Amir Zeb
 
-html,body,*{
+html,
+body,
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
-}
-html{
-    scroll-behavior: smooth;
-}
-body{
     position: relative;
 }
-ul,h1,h2,h3,h4,h5,h6,p,ol{
+
+html {
+    scroll-behavior: smooth;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        @extend a;
+    }
+}
+
+ul,
+ol,
+table {
     padding: 0;
     margin: 0;
 }
 
 // color Variables
-    $pitchBlack:#000;
-    $white:#fff;
-    $primary:rgb(240, 76, 0);
+$pitchBlack:#000;
+$white:#fff;
+$primary:rgb(240, 76, 0);
 
 // mixins
-@mixin flex-box($direction,$position,$items) {
+@mixin flex-box($direction, $position, $items) {
     display: flex;
     flex-flow: $direction wrap;
     justify-content: $position;
     align-items: $items;
-} 
+}
+
 @mixin Smooth($value) {
     transition: $value all ease-in-out;
 }
 
 // maps
-$font-weights:(
-    "light":300,
+$font-weights:("light":300,
     "regular":400,
     "medium":500,
     "semi-bold":600,
@@ -45,15 +68,19 @@ $font-weights:(
     "bolder":800,
     "max":900,
 );
+
 // scroll
-:root{
+:root {
     scrollbar-width: thin;
 }
-:root::-webkit-scrollbar{
+
+:root::-webkit-scrollbar {
     width: 8px;
 }
-:root::-webkit-scrollbar-thumb{
+
+:root::-webkit-scrollbar-thumb {
     background-color: lighten($pitchBlack, 80%);
 }
+
 // imports
-@import 'home','header','footer','page';
+@import 'home', 'header', 'footer', 'page', 'responsive';

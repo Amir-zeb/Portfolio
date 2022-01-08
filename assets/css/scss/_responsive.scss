@@ -1,0 +1,20 @@
+$mobile:400px;
+$table:767px;
+$medium:991px;
+$laptop:1200px;
+$large:1400px;
+
+@media (max-width:$mobile) {
+    header{
+        .nav{
+            .menu{
+            &__item{
+              padding: 0.5rem 0;
+            }
+            &__link{
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+}
